@@ -31,12 +31,12 @@ class Teacher extends Employee
 	 void display()
 	 {
 		 
-		 System.out.println("Employee Id "+ Empid);
-		 System.out.println("Employee Name"+ Name);
-		 System.out.println("Employee Address"+ Address);
-		 System.out.println("Employee Salary"+ Salary);
-		 System.out.println("Employee Department"+ Department);
-		 System.out.println("Employee Subjects"+ Subjects);
+		 System.out.println("Employee Id: "+ Empid);
+		 System.out.println("Employee Name: "+ Name);
+		 System.out.println("Employee Address: "+ Address);
+		 System.out.println("Employee Salary: "+ Salary);
+		 System.out.println("Employee Department: "+ Department);
+		 System.out.println("Employee Subjects: "+ Subjects);
 	 }
 }
 
