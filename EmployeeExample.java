@@ -1,54 +1,74 @@
+
 import java.io.*;
+
 class Employee
 {
-String eName;
-int eNo,eSalary;
+	int Empid;
+	String  Name,Address;
+	float Salary ; 
+	
+	Employee(int e,String n,String a,float s)
 
-	void read() throws IOException
 	{
-	  
-	      DataInputStream dp = new DataInputStream(System.in);
-		  System.out.println("Enter the Employee Number");
-          eNo = Integer.parseInt(dp.readLine());
-          System.out.println("Enter the Employee Name");
-          eName = dp.readLine();
-	      System.out.println("Enter the Employee Salary");
-          eSalary = Integer.parseInt(dp.readLine());
-	}
-	
-	void display()
-	{
-		System.out.println("Employee Name = "+eName);
-		System.out.println("Employee Number = "+eNo);
-		System.out.println("Employee Salary = "+eSalary);
-	
+		Empid = e;
+		Name = n;
+		Address = a;
+		Salary = s;
 	}
 }
-class EmployeeExample
+class Teacher extends Employee
 {
-public static void main(String args[])throws IOException
+	String Department;
+     String Subjects;
+	 
+	 Teacher(int e,String n,String a,float s,String d,String st)
+	 {
+		 super(e,n,a,s);
+		 Department = d;
+		 Subjects = st;
+	 }
+	 
+	 void display()
+	 {
+		 
+		 System.out.println("Employee Id: "+ Empid);
+		 System.out.println("Employee Name: "+ Name);
+		 System.out.println("Employee Address: "+ Address);
+		 System.out.println("Employee Salary: "+ Salary);
+		 System.out.println("Employee Department: "+ Department);
+		 System.out.println("Employee Subjects: "+ Subjects);
+	 }
+}
 
+class InheritanceEmployeeDemo
 {
-	DataInputStream dp = new DataInputStream(System.in);
-	System.out.println("Enter the no of objects:");
-	int n = Integer.parseInt(dp.readLine());
-	Employee e[] = new Employee[n];
-	for(int i=0;i<n;i++)
-	{
-		System.out.println("\nEMPLOYEE "+(i+1));
-	    e[i] = new Employee();
-	    e[i].read();
-	}
-	System.out.println("\nEnter the Employee No you want search?:");
-	int srch = Integer.parseInt(dp.readLine());
-	for(int i=0;i<n;i++)
-	{
-		if(e[i].eNo == srch)
-		{
-		System.out.println("\nThe Employee you searched is :");
-		e[i].display();
-		 break;
-		}
+public static void main(String args[]) throws IOException
+{
+	BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+	System.out.println("Enter the no of teachers details to be entered:");
+	int n = Integer.parseInt(br.readLine());
+	Teacher teach[] = new Teacher[n];
+    for(int i=0;i<n;i++)
+	{ 
+		System.out.println("\n"+" "+"Enter Employee Details " + (i+1));
+		System.out.println("Enter the Employee Id: ");
+		int Empid = Integer.parseInt(br.readLine());
+		System.out.println("Enter the Employee Name: ");
+		String  Name = br.readLine();
+		System.out.println("Enter the Employee Address: ");
+		String  Address = br.readLine();
+		System.out.println("Enter the Employee Salary: ");
+		float Salary =Float.parseFloat(br.readLine());
+		System.out.println("Enter the Employee Department: ");
+		String Department = br.readLine();
+		System.out.println("Enter the Employee Subjects: ");
+		String Subjects = br.readLine();
+		
+		teach[i] = new Teacher(Empid,Name,Address,Salary,Department,Subjects);
+		System.out.println();
+		System.out.println("\nDisplaying Employee Details " + (i+1));
+		System.out.println("--------------------------------------");
+		teach[i].display();
 	}
 }
 }
